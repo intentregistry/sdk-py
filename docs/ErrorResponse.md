@@ -6,8 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **error** | **str** |  | 
-**message** | **str** |  | 
-**request_id** | **str** |  | [optional] 
+**message** | **str** |  | [optional] 
 
 ## Example
 

@@ -1,31 +1,30 @@
-# User
+# SignupRequest
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
 **email** | **str** |  | 
+**password** | **str** |  | 
 **name** | **str** |  | [optional] 
-**created_at** | **datetime** |  | 
 
 ## Example
 
 ```python
-from openapi_client.models.user import User
+from openapi_client.models.signup_request import SignupRequest
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of User from a JSON string
-user_instance = User.from_json(json)
+# create an instance of SignupRequest from a JSON string
+signup_request_instance = SignupRequest.from_json(json)
 # print the JSON string representation of the object
-print(User.to_json())
+print(SignupRequest.to_json())
 
 # convert the object into a dict
-user_dict = user_instance.to_dict()
-# create an instance of User from a dict
-user_from_dict = User.from_dict(user_dict)
+signup_request_dict = signup_request_instance.to_dict()
+# create an instance of SignupRequest from a dict
+signup_request_from_dict = SignupRequest.from_dict(signup_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -17,18 +17,35 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ErrorResponse(BaseModel):
+class Scope(BaseModel):
     """
-    ErrorResponse
+    Scope
     """ # noqa: E501
-    error: StrictStr
-    message: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["error", "message"]
+    id: StrictInt
+    org_id: Optional[StrictInt] = None
+    name: StrictStr
+    type: StrictStr
+    verification_status: StrictStr
+    __properties: ClassVar[List[str]] = ["id", "org_id", "name", "type", "verification_status"]
+
+    @field_validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['user', 'org']):
+            raise ValueError("must be one of enum values ('user', 'org')")
+        return value
+
+    @field_validator('verification_status')
+    def verification_status_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['unverified', 'pending', 'verified', 'revoked']):
+            raise ValueError("must be one of enum values ('unverified', 'pending', 'verified', 'revoked')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +65,7 @@ class ErrorResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ErrorResponse from a JSON string"""
+        """Create an instance of Scope from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,16 +86,16 @@ class ErrorResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if message (nullable) is None
+        # set to None if org_id (nullable) is None
         # and model_fields_set contains the field
-        if self.message is None and "message" in self.model_fields_set:
-            _dict['message'] = None
+        if self.org_id is None and "org_id" in self.model_fields_set:
+            _dict['org_id'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ErrorResponse from a dict"""
+        """Create an instance of Scope from a dict"""
         if obj is None:
             return None
 
@@ -86,8 +103,11 @@ class ErrorResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "error": obj.get("error"),
-            "message": obj.get("message")
+            "id": obj.get("id"),
+            "org_id": obj.get("org_id"),
+            "name": obj.get("name"),
+            "type": obj.get("type"),
+            "verification_status": obj.get("verification_status")
         })
         return _obj
 

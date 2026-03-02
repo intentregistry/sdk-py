@@ -17,18 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
+from openapi_client.models.user import User
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ErrorResponse(BaseModel):
+class AuthSessionResponse(BaseModel):
     """
-    ErrorResponse
+    AuthSessionResponse
     """ # noqa: E501
-    error: StrictStr
-    message: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["error", "message"]
+    user: User
+    access_token: StrictStr = Field(alias="accessToken")
+    refresh_token: StrictStr = Field(alias="refreshToken")
+    expires_in: StrictInt = Field(alias="expiresIn")
+    __properties: ClassVar[List[str]] = ["user", "accessToken", "refreshToken", "expiresIn"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +51,7 @@ class ErrorResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ErrorResponse from a JSON string"""
+        """Create an instance of AuthSessionResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,16 +72,14 @@ class ErrorResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if message (nullable) is None
-        # and model_fields_set contains the field
-        if self.message is None and "message" in self.model_fields_set:
-            _dict['message'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of user
+        if self.user:
+            _dict['user'] = self.user.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ErrorResponse from a dict"""
+        """Create an instance of AuthSessionResponse from a dict"""
         if obj is None:
             return None
 
@@ -86,8 +87,10 @@ class ErrorResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "error": obj.get("error"),
-            "message": obj.get("message")
+            "user": User.from_dict(obj["user"]) if obj.get("user") is not None else None,
+            "accessToken": obj.get("accessToken"),
+            "refreshToken": obj.get("refreshToken"),
+            "expiresIn": obj.get("expiresIn")
         })
         return _obj
 
