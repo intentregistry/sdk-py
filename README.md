@@ -110,6 +110,8 @@ Class | Method | HTTP request | Description
 *TrustedPublishingApi* | [**v1_packages_scope_name_versions_version_provenance_get**](docs/TrustedPublishingApi.md#v1_packages_scope_name_versions_version_provenance_get) | **GET** /v1/packages/{scope}/{name}/versions/{version}/provenance | Get provenance for a package version
 *TrustedPublishingApi* | [**v1_packages_scope_name_versions_version_provenance_put**](docs/TrustedPublishingApi.md#v1_packages_scope_name_versions_version_provenance_put) | **PUT** /v1/packages/{scope}/{name}/versions/{version}/provenance | Upsert provenance for a package version
 *TrustedPublishingApi* | [**v1_publish_oidc_exchange_post**](docs/TrustedPublishingApi.md#v1_publish_oidc_exchange_post) | **POST** /v1/publish/oidc/exchange | Exchange trusted OIDC identity for short-lived publish token
+*UsersApi* | [**get_me**](docs/UsersApi.md#get_me) | **GET** /v1/users/me | Get current user profile
+*UsersApi* | [**update_me**](docs/UsersApi.md#update_me) | **PATCH** /v1/users/me | Update current user profile
 
 
 ## Documentation For Models
@@ -125,6 +127,7 @@ Class | Method | HTTP request | Description
  - [LoginRequest](docs/LoginRequest.md)
  - [Scope](docs/Scope.md)
  - [SignupRequest](docs/SignupRequest.md)
+ - [UpdateUserProfileRequest](docs/UpdateUserProfileRequest.md)
  - [User](docs/User.md)
 
 

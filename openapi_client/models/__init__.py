@@ -25,4 +25,5 @@ from openapi_client.models.health_response import HealthResponse
 from openapi_client.models.login_request import LoginRequest
 from openapi_client.models.scope import Scope
 from openapi_client.models.signup_request import SignupRequest
+from openapi_client.models.update_user_profile_request import UpdateUserProfileRequest
 from openapi_client.models.user import User

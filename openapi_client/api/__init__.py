@@ -8,4 +8,5 @@ from openapi_client.api.registry_governance_api import RegistryGovernanceApi
 from openapi_client.api.registry_index_api import RegistryIndexApi
 from openapi_client.api.scopes_api import ScopesApi
 from openapi_client.api.trusted_publishing_api import TrustedPublishingApi
+from openapi_client.api.users_api import UsersApi
 

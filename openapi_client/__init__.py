@@ -24,6 +24,7 @@ from openapi_client.api.registry_governance_api import RegistryGovernanceApi
 from openapi_client.api.registry_index_api import RegistryIndexApi
 from openapi_client.api.scopes_api import ScopesApi
 from openapi_client.api.trusted_publishing_api import TrustedPublishingApi
+from openapi_client.api.users_api import UsersApi
 
 # import ApiClient
 from openapi_client.api_response import ApiResponse
@@ -48,4 +49,5 @@ from openapi_client.models.health_response import HealthResponse
 from openapi_client.models.login_request import LoginRequest
 from openapi_client.models.scope import Scope
 from openapi_client.models.signup_request import SignupRequest
+from openapi_client.models.update_user_profile_request import UpdateUserProfileRequest
 from openapi_client.models.user import User
