@@ -61,5 +61,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_update_user_profile_request.py
 tox.ini
