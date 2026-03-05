@@ -23,6 +23,9 @@ from openapi_client.models.auth_session_response import AuthSessionResponse
 from openapi_client.models.error_response import ErrorResponse
 from openapi_client.models.health_response import HealthResponse
 from openapi_client.models.login_request import LoginRequest
+from openapi_client.models.package_list_item import PackageListItem
+from openapi_client.models.packages_list_response import PackagesListResponse
+from openapi_client.models.packages_pagination import PackagesPagination
 from openapi_client.models.scope import Scope
 from openapi_client.models.signup_request import SignupRequest
 from openapi_client.models.update_user_profile_request import UpdateUserProfileRequest

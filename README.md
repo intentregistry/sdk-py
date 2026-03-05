@@ -95,6 +95,8 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**delete_pat**](docs/AuthApi.md#delete_pat) | **DELETE** /v1/auth/tokens/{id} | Delete PAT
 *AuthApi* | [**list_pats**](docs/AuthApi.md#list_pats) | **GET** /v1/auth/tokens | List personal access tokens (PAT)
 *HealthApi* | [**health_check**](docs/HealthApi.md#health_check) | **GET** /health | Health check
+*PackagesApi* | [**create_package**](docs/PackagesApi.md#create_package) | **POST** /v1/packages | Create package
+*PackagesApi* | [**list_packages**](docs/PackagesApi.md#list_packages) | **GET** /v1/packages | List public packages for catalog discovery
 *PackagesApi* | [**resolve_package**](docs/PackagesApi.md#resolve_package) | **GET** /v1/packages/{scope}/{name}/resolve | Resolve package install target
 *RegistryGovernanceApi* | [**v1_packages_scope_name_tags_get**](docs/RegistryGovernanceApi.md#v1_packages_scope_name_tags_get) | **GET** /v1/packages/{scope}/{name}/tags | List dist-tags for a package
 *RegistryGovernanceApi* | [**v1_packages_scope_name_tags_tag_put**](docs/RegistryGovernanceApi.md#v1_packages_scope_name_tags_tag_put) | **PUT** /v1/packages/{scope}/{name}/tags/{tag} | Set dist-tag target version (admin)
@@ -125,6 +127,9 @@ Class | Method | HTTP request | Description
  - [ErrorResponse](docs/ErrorResponse.md)
  - [HealthResponse](docs/HealthResponse.md)
  - [LoginRequest](docs/LoginRequest.md)
+ - [PackageListItem](docs/PackageListItem.md)
+ - [PackagesListResponse](docs/PackagesListResponse.md)
+ - [PackagesPagination](docs/PackagesPagination.md)
  - [Scope](docs/Scope.md)
  - [SignupRequest](docs/SignupRequest.md)
  - [UpdateUserProfileRequest](docs/UpdateUserProfileRequest.md)
