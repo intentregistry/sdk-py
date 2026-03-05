@@ -14,7 +14,10 @@ docs/ErrorResponse.md
 docs/HealthApi.md
 docs/HealthResponse.md
 docs/LoginRequest.md
+docs/PackageListItem.md
 docs/PackagesApi.md
+docs/PackagesListResponse.md
+docs/PackagesPagination.md
 docs/RegistryGovernanceApi.md
 docs/RegistryIndexApi.md
 docs/Scope.md
@@ -49,6 +52,9 @@ openapi_client/models/auth_session_response.py
 openapi_client/models/error_response.py
 openapi_client/models/health_response.py
 openapi_client/models/login_request.py
+openapi_client/models/package_list_item.py
+openapi_client/models/packages_list_response.py
+openapi_client/models/packages_pagination.py
 openapi_client/models/scope.py
 openapi_client/models/signup_request.py
 openapi_client/models/update_user_profile_request.py
